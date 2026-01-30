@@ -7,7 +7,7 @@ def health():
     return jsonify(status="Product Service UP")
 
 @app.route("/products", methods=["GET"])
-def get_orders():
+def get_products():
     return jsonify([
         {"product_id": 101, "item": "Diamond Necklace"},
         {"product_id": 102, "item": "Gold Ring"}
