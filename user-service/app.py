@@ -3,28 +3,28 @@ import requests
 
 app = Flask(__name__)
 
-ORDER_SERVICE_URL = "http://192.168.100.12:8081"
+PRODUCT_SERVICE_URL = "http://192.168.100.12:8081"
 
 @app.route("/health", methods=["GET"])
 def health():
-    return jsonify(status="User Service UP")
+    return jsonify(status="Customer Service UP")
 
-@app.route("/users", methods=["GET"])
+@app.route("/customers", methods=["GET"])
 def get_users():
     return jsonify([
-        {"id": 1, "name": "Alice"},
-        {"id": 2, "name": "Bob"}
+        {"id": 1, "name": "Khanak"},
+        {"id": 2, "name": "Shagun"}
     ])
 
-@app.route("/users-with-orders", methods=["GET"])
-def users_with_orders():
-    orders = requests.get(f"{ORDER_SERVICE_URL}/orders").json()
+@app.route("/customers-with-products", methods=["GET"])
+def customers_with_products():
+    products = requests.get(f"{PRODUCT_SERVICE_URL}/orders").json()
     return jsonify({
         "users": [
-            {"id": 1, "name": "Alice"},
-            {"id": 2, "name": "Bob"}
+            {"id": 1, "name": "Khanak"},
+            {"id": 2, "name": "Shagun"}
         ],
-        "orders": orders
+        "products": products
     })
 
 if __name__ == "__main__":
