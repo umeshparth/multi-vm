@@ -6,11 +6,11 @@ app = Flask(__name__)
 def health():
     return jsonify(status="Order Service UP")
 
-@app.route("/orders", methods=["GET"])
+@app.route("/products", methods=["GET"])
 def get_orders():
     return jsonify([
-        {"order_id": 101, "item": "Laptop"},
-        {"order_id": 102, "item": "Mobile"}
+        {"product_id": 101, "item": "Diamond Necklace"},
+        {"product_id": 102, "item": "Gold Ring"}
     ])
 
 if __name__ == "__main__":
